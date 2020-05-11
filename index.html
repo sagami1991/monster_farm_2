@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="script/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="script/main.js"></script>
+    <script type="text/javascript" src="script/ui.js"></script>
+    <script type="text/javascript" src="script/taikai.js"></script>
+    <script type="text/javascript" src="script/saisei.js"></script>
+    <script type="text/javascript" src="script/file.js"></script>
+    <title>なんJ民育成 ～最強のなんJ民を育成するンゴオオオオオオオ～</title>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59778844-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body>
+<div class="page_title"><h2>なんJ民育成<br>～最強のなんJ民を育成するンゴオオオオオオオ～</h2></div>
+<div class="wrap">
+	<div class="farm_field">
+		<div class = "day_and_money">
+    		<div class="daydata_box cercle"></div>
+    		<div class="money_box cercle"></div>
+    	</div>
+    	<div class="image_box cercle"><img id="gazou" src=""></div>
+    	<div class="menu_box">
+    		<div class="breed_menu cercle" onclick="openwindow(0);" onmouseover="setumei(0);" onmouseout="setumeidelete();">トレーニング</div>
+    		<div class="breed_menu cercle" onclick="openwindow(1); open_syugyou();" onmouseover="setumei(1);" onmouseout="setumeidelete();">修行</div>
+    		<div class="breed_menu cercle" onclick="openwindow(2);" onmouseover="setumei(2);" onmouseout="setumeidelete()">休養</div>
+    		<div class="breed_menu cercle" onclick="openwindow(3); open_taikai();"  onmouseover="setumei(3);" onmouseout="setumeidelete();">大会</div>
+    		<div class="breed_menu cercle" onclick="openwindow(4);open_item_list();" onmouseover="setumei(4);" onmouseout="setumeidelete();">アイテム</div>
+    		<div class="breed_menu cercle" onclick="openwindow(5); status_view();">ステータス</div>
+    		<div class="breed_menu cercle" onclick="openwindow(9); open_file_window(0);" onmouseover="setumei('file');" onmouseout="setumeidelete();">ファイル</div>
+            <div id="rebirth" class="syugyomenu cercle" onclick="reset();" onmouseover="setumei('rebirth');" onmouseout="setumeidelete();" style="width:150px;display:none;">新しいなんJ民を育てる</div>
+    	</div>
+    	<div class="normal_text">大松のコメント</div>
+    	<div class="message_box cercle" style="height:56px;"></div>
+    	<div class="normal_text">説明</div>
+    	<div class="message_box cercle" style="height:26px;"></div>
+    	<div class="normal_text">ログ</div>
+    	<div class="message_box cercle" style="height:64px;"></div>
+
+    	<!-- ポップアップウインドウ-->
+    	<div class="explain_window cercle">
+    		<!-- 閉じるボタン-->
+    		<div class="exit_button cercle" onclick="closewindow();">Ｘ</div>
+    		<!-- 0.トレーニングメニュー-->
+    		<div class="window_block" style="width: 350px;">
+    			<div>軽めのトレーニング</div>
+    			<div class="traymenu cercle floatleft" onclick="trayning_kei(0)" onmouseover="setumei(7)" onmouseout="setumeidelete()">腕立て</div>
+	    		<div class="traymenu cercle floatleft" onclick="trayning_kei(1)" onmouseover="setumei(8)" onmouseout="setumeidelete()">投げ込み</div><br>
+	    		<div class="traymenu cercle floatleft" onclick="trayning_kei(2)" onmouseover="setumei(9)" onmouseout="setumeidelete()">勉強</div>
+	    		<div class="traymenu cercle floatleft" onclick="trayning_kei(3)" onmouseover="setumei(10)" onmouseout="setumeidelete()">反復横跳び</div><br>
+	    		<div class="traymenu cercle floatleft" onclick="trayning_kei(4)" onmouseover="setumei(11)" onmouseout="setumeidelete()">走り込み</div>
+	    		<div class="traymenu cercle floatleft" onclick="trayning_kei(5)" onmouseover="setumei(12)" onmouseout="setumeidelete()">腹筋</div><br>
+	    		<div style="margin-top: 5px; clear:both;">重めのトレーニング</div>
+    			<div class="traymenu cercle floatleft" onclick="trayning_juu(0)" onmouseover="setumei(13)" onmouseout="setumeidelete()">けんすい</div>
+	    		<div class="traymenu cercle floatleft" onclick="trayning_juu(1)" onmouseover="setumei(14)" onmouseout="setumeidelete()">ボールよけ</div><br>
+	    		<div class="traymenu cercle floatleft" onclick="trayning_juu(2)" onmouseover="setumei(15)" onmouseout="setumeidelete()">レスバトル</div>
+	    		<div class="traymenu cercle floatleft" onclick="trayning_juu(3)" onmouseover="setumei(16)" onmouseout="setumeidelete()">タックル</div><br>
+    		</div>
+    		<!-- 1.修行メニュー-->
+    		<div class="window_block" style="left:10px;">
+    		<div style="margin-bottom: 10px;">修行して新技覚えるンゴ(料金1500円)</div>
+    			<table id="syugyouwindow" style="font-size: 16px;" class="table syugyou_table">
+    				<tbody><tr>
+    					<td>修行地</td>
+    					<td>上がる能力</td>
+    					<td>アドバイス</td>
+    				</tr>
+    				<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>LOCK</td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>LOCK</td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>LOCK</td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    			</tbody>
+    			</table>
+    		</div>
+    		<!-- 2.休養メニュー-->
+    		<div class="window_block" style="top:50px; left:100px;">
+    			<div style="margin-bottom: 3px;">休養するンゴ？</div>
+    			<div onclick="kyuuyou()" class="traymenu cercle floatleft">ＯＫ</div>
+    		</div>
+    		<!-- 3.大会メニュー-->
+    		<div class="window_block" style="left:80px;">
+    		<div style="margin-bottom: 3px;">優勝するンゴオオオ</div>
+    		<table style="font-size: 18px;" class="taikai_table">
+    				<tr>
+    					<td style="width:80px">ランク</td>
+    					<td style="width:200px"></td>
+    				</tr>
+    				<tbody id ="taikai_list_tbody">
+    				<tr>
+    					<td>S</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>A</td>
+    					<td></td>
+    				</tr>
+    				 <tr>
+    					<td>B</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>C</td>
+    					<td></td>
+    				</tr>
+    				 <tr>
+    					<td>D</td>
+    					<td></td>
+    				</tr>
+       				 <tr>
+    					<td>E</td>
+    					<td></td>
+    				</tr>
+    			</tbody>
+    			</table>
+    		</div>
+    		<!-- 4.アイテムメニュー-->
+    		<div class="window_block" style="left:30px;">
+    			<div style="margin-bottom: 6px;">アイテム一覧</div>
+    			<table style="font-size: 16px;" class="table item_table">
+    				<tr>
+    					<td style="width: 120px;">名前</td>
+    					<td style="width: 70px;">値段</td>
+    					<td style="width: 190px;">効果</td>
+    				</tr>
+                    <tbody id="itemlist_tbody">
+    				<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    				    				<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    			</tbody>
+    			</table>
+    		</div>
+    		<!-- 5.ステータスメニュー-->
+    		<div class="window_block" style="width:400px;">
+    			<div style="margin-bottom: 2px;">ステータス</div>
+    			<table style="font-size: 16px;" class="status_table">
+    			<tbody>
+    				<tr>
+    					<td width="80">ライフ</td>
+    					<td name="status" width="30">100</td>
+    					<td><canvas name="mertar" height="14" width="250"></canvas></td>
+    				</tr>
+    				<tr>
+    					<td>ちから</td>
+    					<td name="status">110</td>
+    					<td><canvas name="mertar" height="14" width="250"></canvas></td>
+    				</tr>
+    				<tr>
+    					<td>かしこさ</td>
+    					<td name="status">110</td>
+    					<td><canvas name="mertar" height="14" width="250"></canvas></td>
+    				</tr>
+    				<tr>
+    					<td>命中</td>
+    					<td name="status">110</td>
+    					<td><canvas name="mertar" height="14" width="250"></canvas></td>
+    				</tr>
+    				<tr>
+    					<td>回避</td>
+    					<td name="status">110</td>
+    					<td><canvas name="mertar" height="14" width="250"></canvas></td>
+    				</tr>
+    				<tr>
+    					<td>丈夫さ</td>
+    					<td name="status">110</td>
+    					<td><canvas name="mertar" height="14" width="250"></canvas></td>
+    				</tr>
+    			</tbody>
+    			</table>
+    			<div id="tosi" style="margin:5px 0px 12px 5px; font-size: 16px;">0歳 0ヶ月　ランク 無し</div>
+
+    			<div class="exit_button cercle" onclick="openwindow(7); open_skill_list();">技リスト</div>
+    			<div id="hidden_stat_button" class="exit_button cercle" onclick="openwindow(8); open_hidden_stat();" style="margin-right: 8px;">隠しステータス</div>
+    		</div>
+    		<!-- 6.毎月の食事メニュー--> 
+    		<div class="window_block" style="left:5px">
+    		<div style="margin-bottom: 3px;">今月のなんJ民のエサはどうするンゴ？</div>
+    		<table style="font-size: 16px;" class="table item_table" width="470px">
+    				<tr>
+    					<td width="120px">名前</td>
+    					<td width="50px">値段</td>
+    					<td width="300px">効果</td>
+    				</tr>
+                    <tbody id="dinner_tbody">
+    				<tr>
+    					<td><div onclick="dinner(0)" class="syugyomenu cercle">パンの耳</div></td>
+    					<td>10円</td>
+    					<td>底辺の飯、ストレスがたまる</td>
+    				</tr>
+    				<tr>
+    					<td><div onclick="dinner(1)" class="syugyomenu cercle">ガリガリ君</div></td>
+    					<td>50円</td>
+    					<td>栄養はないが、ストレスがほんの少し解消される</td>
+    				</tr>
+    				<tr>
+    					<td><div onclick="dinner(2)" class="syugyomenu cercle">マクド</div></td>
+    					<td>100円</td>
+    					<td>そこそこうまい、ストレスがほんの少し解消される</td>
+    				</tr>
+    				<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    			</tbody>
+    			</table>
+    		</div>
+    		<!-- 7.技メニュー-->
+    		<div class="window_block" style="left:5px">
+    		<div style="margin-bottom: 3px;">技リスト</div>
+    		<table style="font-size: 16px;" class="table" width="470px">
+    				<tr>
+    					<td width="120px">技名</td>
+       					<td width="50px">タイプ</td>
+    					<td width="50px">ガッツ<br>消費</td>
+    					<td width="50px">威力</td>
+    					<td width="50px">命中</td>
+    				</tr>
+    				<tbody id ="skill_tbody">
+    				<tr>
+    					<td>LOCK</td>
+       					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>LOCK</td>
+       					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>LOCK</td>
+       					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>LOCK</td>
+       					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>LOCK</td>
+       					<td></td>
+    					<td></td>
+    					<td></td>
+    					<td></td>
+    				</tr>
+    			</tbody>
+    			</table>
+    		</div>
+    		<!-- 8.隠しステータス-->
+    		<div class="window_block" style="width : 350px">
+    		    <div style="margin-bottom: 3px;">隠しステータス</div>
+    			<table style="font-size: 16px;" class="status_table">
+    			<tbody>
+    				<tr>
+    					<td width="90px">残り寿命</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>体調値</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>疲労値</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>ストレス</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>成長段階</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>やる気回復</td>
+    					<td></td>
+    				</tr>
+    			</tbody>
+    			</table>
+
+    		    <div style="margin-bottom: 3px;margin-top: 6px;">成長力</div>
+    			<table style="font-size: 16px;" class="status_table">
+    			<tbody>
+    				<tr>
+    					<td width="90px">ライフ</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>ちから</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>かしこさ</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>命中</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>回避</td>
+    					<td></td>
+    				</tr>
+    				<tr>
+    					<td>丈夫さ</td>
+    					<td></td>
+    				</tr>
+    			</tbody>
+    			</table>
+    		</div>
+    		<!-- 9.ファイル-->
+    		<div class="window_block" style="width:100%;">
+    		<!--メインファイル画面-->
+    		<div name="file_window" style="text-align:center; width:100%;">
+    			<div style="margin-bottom: 5px;">ファイル</div>
+    			<div onclick="open_file_window(1); file_log_kill('save_frame');" class="syugyomenu cercle" style="margin:auto;margin-bottom: 5px;">セーブ</div>
+    			<div onclick="open_file_window(2); file_log_kill('load_frame');" class="syugyomenu cercle" style="margin:auto;margin-bottom: 15px;">ロード</div>
+                <div style="margin-bottom: 5px;">データ</div>
+    			<div onclick="closewindow();openwindow2(3);load_ranking();" class="syugyomenu cercle" style="width:120px;margin:auto;margin-bottom: 15px;">ランキング</div>
+                <div name ="summon_factory" style="margin-bottom: 5px;">再生場（LOCK）</div>
+                <div name ="summon_factory" class="syugyomenu cercle" onclick="closewindow();openwindow2(2);Summon.display();" style="margin:auto;">再生場</div>
+    		</div>
+    		<!--セーブ画面-->
+    		<div name="file_window" style=" width:400px; margin:auto; padding-top:30px;">
+    			<form id="save_form">
+	    			<div>名前</div>
+	    			<input type="text" id="my_name" size="30" value="なんJ民" style="margin-top:5px;margin-bottom:8px;">
+	    			<div>ロード用ID</div>
+	    			<input type="text" id="my_id" size="30" style="margin-top:5px;margin-bottom:15px;">
+	    			<div onclick="save_file();" class="syugyomenu cercle" style="margin-bottom: 5px;">セーブ</div>
+    				<div class="framestyle" id="save_frame"></div>
+       			</form>
+    		</div>
+    		<!--ロード画面-->
+    		<!--ロード用スクリプト-->
+    		<div name="file_window" style=" width:400px; margin:auto; padding-top:30px;">
+    			<form id="load_form">
+	    			<div>ロード用ID</div>
+	    			<input type="text" id="my_id" size="30" style="margin-top:5px;margin-bottom:15px;">
+	    			<div onclick="read_file();" class="syugyomenu cercle" style="margin-bottom: 5px;">ロード</div>
+                </form>
+    				<div class="framestyle" id="load_frame"></div>
+    		</div>
+    		</div>
+
+    	</div><!-- ポップアップウインドウ終了-->
+    	<!-- ポップアップウインドウ2（修行、大会、再生場等）-->
+    	<div class="window2 cercle">
+    		<!--0.修行-->
+    		<div class="window_block2">
+    			<div name="syugyou"></div>
+    			<div style="margin:auto; margin-top:10px; margin-bottom:10px">
+    				<img name="syugyou" src="">
+    			</div>
+    			<div onclick="Syugyou.run();" class="syugyomenu cercle" style="width:150px; margin:auto;">修行を続ける</div>
+    		</div>
+    		<!--1.大会-->
+    		<div class="window_block2">
+    		<!--戦闘中画面-->
+    		<div  style="text-align:center; width:100%;" id ="battle_display">
+    			<div name="taikai">time</div>
+    			<table  class="table" style="font-size: 16px; width: 620px; margin:auto;">
+				<tbody>
+					<tr>
+			            <td><canvas name="hp_bar" height="20" width="250"></canvas></td>
+						<td colspan="3" id="timecount" width="160px"></td>
+			            <td colspan="1"><canvas name="hp_bar" height="20" width="250"></canvas></td>
+					</tr>
+					<tr>
+						<td colspan="1">
+							<img name="battle_image" height="240" width="240">
+			            </td>
+						<td colspan="3" id="nankaisenka" valign="top"></td>
+						<td colspan="1">
+							<img name="battle_image" height="240" width="240">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="1" name="skill_name"></td>
+						<td name="acc"style="width: 38px;"></td>
+						<td style="width: 20px;">命中</td>
+						<td name="acc"style="width: 38px;"></td>
+						<td colspan="1" name="skill_name"></td>
+					</tr>
+					<tr>
+						<td>
+						<div id="battle_skill" style="margin-left:10px">
+			                <div onclick="Battle.atk_flag_set(0);" class="skill_button cercle" onmouseover="Battle.skill_info('myself',0);" onmouseout ="Battle.skill_info_kill();">技1</div>
+			                <div onclick="Battle.atk_flag_set(1);" class="skill_button cercle" onmouseover="Battle.skill_info('myself',1);" onmouseout ="Battle.skill_info_kill();">技2</div>
+			                <div onclick="Battle.atk_flag_set(2);" class="skill_button cercle" onmouseover="Battle.skill_info('myself',2);" onmouseout ="Battle.skill_info_kill();">技3</div>
+			                <div onclick="Battle.atk_flag_set(3);" class="skill_button cercle" onmouseover="Battle.skill_info('myself',3);" onmouseout ="Battle.skill_info_kill();">技4</div>
+			                <div onclick="Battle.atk_flag_set(4);" class="skill_button cercle" onmouseover="Battle.skill_info('myself',4);" onmouseout ="Battle.skill_info_kill();">技5</div>
+			              </div>
+			            </td>
+						<td name="guts" width="20"></td>
+						<td>やる気</td>
+						<td name="guts" width="20"></td>
+						<td></td>
+					</tr>
+				</tbody>
+				</table>
+				<!--一番下の画面-->
+                <div style="margin-top:10px;margin-left:20px" id="bottom_info">
+                <span id = "skill_info" style="font-size:16px;float:left;text-align:left;" >
+                </span>
+				<span onclick="Battle.kiken();" class="syugyomenu cercle" style="margin-right:20px;float:right ">棄権する</span>
+                </div>
+				</div><!--バトル中画面終了-->
+    		<!--バトル前のステータス表示画面-->
+    		<div class ="battle_stat" style=" width:100%;">
+    			<div id="battle_result" style="margin:auto; margin-top:10px;"></div>
+    			<table style="margin:auto;margin-top:10px; width:620px; font-size: 16px; text-align:center;">
+    			<tbody>
+    			<tr>
+    				<td style=" width:256px;"><canvas id="myimage" height="240" width="240"></canvas></td>
+    				<td style="font-size:40px;">VS</td>
+    				<td style=" width:256px;"><canvas id="enemyimage" height="240" width="240"></canvas></td>
+    			</tr>
+    			<tr>
+    				<td><canvas name="my_mertar" height="14" width="240"></canvas></td>
+    				<td>ライフ</td>
+    				<td><canvas name="enemy_mertar" height="14" width="240"></td>
+    			</tr>
+    			<tr>
+    				<td><canvas name="my_mertar" height="14" width="240"></canvas></td>
+    				<td>ちから</td>
+    				<td><canvas name="enemy_mertar" height="14" width="240"></td>
+    			</tr>
+    			<tr>
+    				<td><canvas name="my_mertar" height="14" width="240"></canvas></td>
+    				<td>かしこさ</td>
+    				<td><canvas name="enemy_mertar" height="14" width="240"></td>
+    			</tr>
+    			<tr>
+    				<td><canvas name="my_mertar" height="14" width="240"></canvas></td>
+    				<td>命中</td>
+    				<td><canvas name="enemy_mertar" height="14" width="240"></td>
+    			</tr>
+    			<tr>
+    				<td><canvas name="my_mertar" height="14" width="240"></canvas></td>
+    				<td>回避</td>
+    				<td><canvas name="enemy_mertar" height="14" width="240"></td>
+    			</tr>
+    			<tr>
+    				<td><canvas name="my_mertar" height="14" width="240"></canvas></td>
+    				<td>丈夫さ</td>
+    				<td><canvas name="enemy_mertar" height="14" width="240"></td>
+    			</tr>
+    			</tbody>
+    			</table>
+    			<div onclick="Battle.start();" id="battle_start" class="syugyomenu cercle" style="margin:auto; margin-top:10px;">スタート</div>
+    			<div id ="next_battle" onclick="Taikai.next();" class="syugyomenu cercle" style="margin:auto; display:none; margin-top:10px;">次の敵へ</div>
+    			<div id ="result_button" onclick="Taikai.endlog();" class="syugyomenu cercle" style="margin:auto; display:none; margin-top:10px;">結果</div>
+				<div id ="end_battle" onclick="Taikai.backhome();" class="syugyomenu cercle" style="margin:auto; display:none; width: 200px; margin-top:10px;">ファームに戻る</div>
+    		</div> <!--バトル前のステータス表示画面-->
+    		</div> <!-- 大会画面-->
+    		<!--2.再生場-->
+    		<div class="window_block2" style="margin-top:10px;">
+    			<div>再生場</div>
+                <div style="width:620px; margin:auto;">
+                <div style="margin:10px auto 5px 0px; text-align:left; font-size:16px">
+                    再生用画像URL<br>
+                    <input type="text" id="gazouurl" size="60" value = "imgurの画像urlを入力してください例http://i.imgur.com/2dyhz3J.jpg">
+                </div>
+                <div onclick="loadImg();" class="syugyomenu cercle" style="margin:5px 0px 5px 0px">再生する</div>
+                <div class="framestyle" id="hyouji" style="height:50px; text-align:left;"></div>
+                <div style="margin-top:10px;">
+                    <table style="font-size : 14px;">
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td>ステータス</td>
+                                <td width="60">成長力</td>
+                                <td rowspan="10">
+                                <div style="padding:5px;">
+                                <img id="saiseigazou" width="240" height="240">
+                                </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>ライフ</td>
+                                <td name="para"></td>
+                                <td name="tekisei"></td>
+                            </tr>
+                            <tr>
+                                <td>ちから</td>
+                                <td name="para"></td>
+                                <td name="tekisei"></td>
+                            </tr>
+                            <tr>
+                                <td>かしこさ</td>
+                                <td name="para"></td>
+                                <td name="tekisei"></td>
+                            </tr>
+                            <tr>
+                                <td>命中</td>
+                                <td name="para"></td>
+                                <td name="tekisei"></td>
+                            </tr>
+                            <tr>
+                                <td>回避</td>
+                                <td name="para"></td>
+                                <td name="tekisei"></td>
+                            </tr>
+                            <tr>
+                                <td>丈夫さ</td>
+                                <td name="para"></td>
+                                <td name="tekisei"></td>
+                            </tr>
+                            <tr>
+                                <td>やる気<br>回復速度</td>
+                                <td name="para"></td>
+                                <td name="tekisei"></td>
+                            </tr>
+                            <tr>
+                                <td>寿命（週）</td>
+                                <td name="para"></td>
+                                <td name="tekisei"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="position: relative; margin-top:10px">
+                <span onclick="syoukanowari()" id="syoukanowari" class="rank_button" style="left:100px">
+                このなんJ民を育てる
+                </span>
+    			<span onclick="closewindow2();" class="rank_button" style="left:435px">ファームに帰る</span>
+                </div>
+
+    		</div>
+            </div>
+            <!--3.ランキング-->
+            <div class="window_block2" style="margin-top:5px">
+                <div>みんなのなんJ民</div>
+                <div id="rank_window" style="width:620px; height:405px; margin:auto; padding-left:15px">
+                </div>
+                <div style="position: relative; margin-top:10px">
+                <span onclick="Ranking.next_fnc(0);" class="rank_button" name="rank_button" style="left:250px">前へ</span>
+                <span onclick="Ranking.next_fnc(1);" class="rank_button" name="rank_button" style="left:320px">次へ</span>
+                <span onclick="closewindow2();" class="rank_button" style="left:435px">ファームに帰る</span>
+                </div>
+
+            
+    	</div><!-- ポップアップウインドウ2-->
+    </div><!-- ゲーム画面終了-->
+</div><!--wrap終了-->
+</body>
+
+</html>

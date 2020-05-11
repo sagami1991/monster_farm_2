@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="js1.js"></script>
+    </head>
+    <body>
+        モンスターファーム2シミュレーション<br><br>
+        <div id="ikusei">
+        <div id="ikiteru">
+            <table style="font-size : 14px;" border="0" frame="box">
+    <tbody>
+        <tr valign="top">
+            <td align="center" width="270" valign="top">
+                <div id="visi">
+                今月のモンスターのエサはどれにしますか？<br><br>
+        <button onclick="esa(1)" onmouseover="foodsetumei(0)" onmouseout="setumeidelete()" style="WIDTH: 100px; HEIGHT: 20px">ジャガもどき</button><br>
+        <button onclick="esa(2)" onmouseover="foodsetumei(1)" onmouseout="setumeidelete()" style="WIDTH: 100px; HEIGHT: 20px">ミルクもどき</button><br>
+        <button onclick="esa(3)" onmouseover="foodsetumei(2)" onmouseout="setumeidelete()" style="WIDTH: 100px; HEIGHT: 20px">サカナもどき</button><br>
+        <button onclick="esa(4)" onmouseover="foodsetumei(3)" onmouseout="setumeidelete()" style="WIDTH: 100px; HEIGHT: 20px">ゼリーもどき</button><br>
+        <button onclick="esa(5)" onmouseover="foodsetumei(4)" onmouseout="setumeidelete()" style="WIDTH: 100px; HEIGHT: 20px">ニクもどき</button><br>
+        <button onclick="esa(6)" onmouseover="foodsetumei(5)" onmouseout="setumeidelete()" style="WIDTH: 100px; HEIGHT: 20px">ビタミンもどき</button><br>
+                <br><br><br><br><br></div>
+        </td>
+            <td rowspan="3" width="200">
+            <center>モンスターの状態</center>
+            <img id="gazou" src="" width="200" height="200">
+            </td>
+        </tr>
+        <tr>
+            <td name="train" valign="top">
+
+             軽めのトレーニング<br>
+        <button onclick="domino()" onmouseover="treisetumei(0)" onmouseout="setumeidelete()" style="WIDTH: 90px; HEIGHT: 20px">ドミノ倒し</button>
+        <button onclick="syateki()" onmouseover="treisetumei(1)" onmouseout="setumeidelete()" style="WIDTH: 90px; HEIGHT: 20px">しゃてき</button><br>
+        <button onclick="benkyou()" onmouseover="treisetumei(2)" onmouseout="setumeidelete()" style="WIDTH: 90px; HEIGHT: 20px">猛勉強</button>
+        <button onclick="kyoseki()" onmouseover="treisetumei(3)" onmouseout="setumeidelete()" style="WIDTH: 90px; HEIGHT: 20px">巨石よけ</button><br>
+        <button onclick="hasirikomi()" onmouseover="treisetumei(4)" onmouseout="setumeidelete()" style="WIDTH: 90px; HEIGHT: 20px">走り込み</button>
+        <button onclick="marutauke()" onmouseover="treisetumei(5)" onmouseout="setumeidelete()" style="WIDTH: 90px; HEIGHT: 20px">丸太受け</button><br>
+            重めのトレーニング<br>
+        <button onclick="omorihiki()" onmouseover="treisetumei(6)" onmouseout="setumeidelete()" style="WIDTH: 90px; HEIGHT: 20px">重り引き</button>
+        <button onclick="hendouyuka()" onmouseover="treisetumei(7)" onmouseout="setumeidelete()" style="WIDTH: 90px; HEIGHT: 20px">変動ゆか</button><br>
+        <button onclick="meisou()" onmouseover="treisetumei(8)" onmouseout="setumeidelete()" style="WIDTH: 90px; HEIGHT: 20px">めいそう</button>
+        <button onclick="pool()" onmouseover="treisetumei(9)" onmouseout="setumeidelete()" style="WIDTH: 90px; HEIGHT: 20px">プール</button><br>
+                </td>
+        </tr>
+        <tr>
+            <td name="train"><br>その他<br>
+            <button onclick="kyuuyou()" onmouseover="treisetumei(10)" onmouseout="setumeidelete()" style="WIDTH: 50px; HEIGHT: 20px">休養</button>
+            <button onclick="itemwindow()" onmouseover="treisetumei(11)" onmouseout="setumeidelete()" id="itemwindow">アイテム</button>
+            <button onclick="taikairan()" onmouseover="treisetumei(12)" onmouseout="setumeidelete()">大会</button><br>
+                <div id="itemran"><br>
+            <button onclick="oil()" onmouseover="foodsetumei(6)" onmouseout="setumeidelete()">オイリーオイル</button>
+            <button onclick="kusa()" onmouseover="foodsetumei(7)" onmouseout="setumeidelete()">夏美草</button>
+            </div><div id="taikairan"><br>
+            ランク
+        <select id="rank">
+            <option value="1">E</option>
+        </select>
+        の<button onclick="taikai()" style="WIDTH: 90px; HEIGHT: 20px">大会に出る</button></div>
+                <br>
+            <button onclick="syugyouwindow()" onmouseover="foodsetumei(8)" onmouseout="setumeidelete()">修行</button><br>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" id="syugyoutd">
+        <table id="syugyouwindow" border="1" style="font-size : 14px;">
+        <tr>
+            <td>修行地</td>
+            <td>上がる能力</td>
+            <td>コメント</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+</table>
+            </td></tr>
+        <tr><td colspan="2" id="setumei"></td></tr>
+    </tbody>
+</table>
+
+
+        </div>
+        <div id="syugyouran"><br><br><br><br><br><button onclick="syugyoutyuu()">修行を続ける</button><br><br><br><br></div>
+         <br>
+        <FORM name="myform">
+            日付と所持金<br><textarea  name="mytext1" cols="50" rows="1" wrap="soft"></textarea>
+            <br><textarea  name="mytext6" cols="50" rows="1" wrap="soft"></textarea>
+            <br>コルトのアドバイス<br>
+   <textarea  name="mytext2" cols="50" rows="3" wrap="soft"></textarea>
+            <br><div id="trekasyugyou">トレーニング結果</div>
+            <textarea  name="mytext3" cols="50" rows="3" wrap="soft"></textarea>
+            <textarea  name="mytext5" cols="50" rows="10" wrap="soft" id="testyou"></textarea>
+        </FORM>
+ステータス<br>
+            <table border="0" frame="box" width="420" style="font-size : 14px;">
+<tr><td colspan="3" id="tosi" height="25"></td>
+    </tr>
+<tr>
+<td  width="90">ライフ</td>
+<td  width="30" id="raihu" name="status">2-2</td>
+<td  width="300"><canvas name="mertar" height="14" width="300"></canvas></td>
+</tr>
+<tr>
+<td>ちから</td>
+<td id="tikara" name="status"></td>
+<td><canvas name="mertar" height="14" width="300"></canvas></td>
+</tr>
+<tr>
+<td>かしこさ</td>
+<td id="kasikosa" name="status"></td>
+<td><canvas name="mertar" height="14" width="300"></canvas></td>
+</tr>
+<tr>
+<td>命中</td>
+<td id="meityu" name="status"></td>
+<td><canvas name="mertar" height="14" width="300"></canvas></td>
+</tr>
+<tr>
+<td>回避</td>
+<td id="kaihi" name="status"></td>
+<td><canvas name="mertar" height="14" width="300"></canvas></td>
+</tr>
+<tr>
+<td>丈夫さ</td>
+<td id="joubusa" name="status"></td>
+<td><canvas name="mertar" height="14" width="300"></canvas></td>
+</tr>
+</table>
+
+<!-- 隠しステータス-->
+隠しステータス<br>
+<table border="1" id="HiddenStatus">
+<tr>
+<td  width="90">残り寿命(週)</td><td></td>
+<td>疲労値</td><td></td>
+<td>ストレス値</td><td></td>
+<td>体調値</td><td></td>
+</tr>
+</table>
+
+            <br><button onclick="mywazalistopen()">技一覧</button>
+            <table class="cent" id="mywazalist" style="font-size : 14px;" width="420" frame="box" >
+        <tr>
+            <td>技番号</td>
+            <td  width="120">技名</td>
+            <td>消費</td>
+            <td>威力</td>
+            <td>命中</td>
+            <td>タイプ</td>
+            <td>ガッツダメージ</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+</table>
+  <br>
+        <br><button onclick="syoukanjougo()" id ="umareru">モンスターを再生する</button>
+        </div>
+        <div id="taikaihyouji">
+            <style>.cent td {text-align:center;}</style>
+            <table class="cent" frame="box">
+    <tbody>
+        <tr>
+            <td><canvas id="health" height="20" width="250"></canvas></td>
+            <td colspan="3" id="timecount" width="140"></td>
+            <td colspan="1"><canvas id="enemyhealth" height="20" width="250"></canvas></td>
+        </tr>
+        <tr>
+            <td colspan="1"><img id="battleview" src="" width="250" height="250" >
+            </td>
+            <td colspan="3" id="nankaisenka" valign="top"></td>
+            <td colspan="1"><img id="enemybattleview" src="" width="250" height="250"></td>
+        </tr>
+        <tr>
+            <td colspan="1" id="wazanonamae1"></td>
+            <td id="myhit"></td>
+            <td>命中</td>
+            <td id ="enemyhit"></td>
+            <td colspan="1" id="wazanonamae2"></td>
+        </tr>
+        <tr>
+            <td id="wazawohyouji">
+                <button onclick="kougeki(0)" id="waza1" name="myskill">技1</button>
+                <button onclick="kougeki(1)" id="waza2" name="myskill">技2</button>
+                <button onclick="kougeki(2)" id="waza3" name="myskill">技3</button>
+                <button onclick="kougeki(3)" id="waza4" name="myskill">技4</button>
+                <button onclick="kougeki(4)" name="myskill">技5</button>
+            </td>
+            <td id="guts" width="20"></td>
+            <td>やる気</td>
+            <td id="enemyguts" width="20"></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table></br>
+            <button onclick="battlestart()" id="battlestart" >バトルスタート</button>
+            <button onclick="junbi()" id="junbi" >次へ</button>
+        <button onclick="kiken()" id="kiken">棄権する</button>
+            <button onclick="modoru()" id="modoru" style="position: relative; left: 120px; top: 0px;">ファームに戻る</button>
+                <FORM name="myform2">
+            <textarea  name="taikailog" cols="85" rows="5" wrap="soft"></textarea>
+                    <br><br>
+            <textarea  name="status1" cols="40" rows="8" wrap="soft"></textarea>
+            <textarea  name="status2" cols="40" rows="8" wrap="soft"></textarea>
+        </FORM>
+        </div>
+    <div id="syoukanjou" style="display:none">
+        モンスター再生場<br><br>
+        <button onclick='loadImg()'>再生する</button>
+        <input type="text" id="gazouurl" value="imgurの画像urlを入力してください例http://i.imgur.com/2dyhz3J.jpg" style="width:300px">
+        <p id="hyouji"></p>
+        <button onclick='syoukanowari()' id="syoukanowari" style="visibility:hidden">このモンスターを育てる</button>
+        <table border="0" frame="box" style="font-size : 14px;">
+    <tbody>
+        <tr>
+            <td></td>
+            <td>ステータス</td>
+            <td>成長力</td>
+            <td rowspan="10"><img id="saiseigazou" width="250" height="250"></img></td>
+        </tr>
+        <tr>
+            <td>ライフ</td>
+            <td name="para"></td>
+            <td name="tekisei"></td>
+        </tr>
+        <tr>
+            <td>ちから</td>
+            <td name="para"></td>
+            <td name="tekisei"></td>
+        </tr>
+        <tr>
+            <td>かしこさ</td>
+            <td name="para"></td>
+            <td name="tekisei"></td>
+        </tr>
+        <tr>
+            <td>命中</td>
+            <td name="para"></td>
+            <td name="tekisei"></td>
+        </tr>
+        <tr>
+            <td>回避</td>
+            <td name="para"></td>
+            <td name="tekisei"></td>
+        </tr>
+        <tr>
+            <td>丈夫さ</td>
+            <td name="para"></td>
+            <td name="tekisei"></td>
+        </tr>
+        <tr>
+            <td>ガッツ回復</td>
+            <td name="para"></td>
+            <td name="tekisei"></td>
+        </tr>
+        <tr>
+            <td>寿命（週）</td>
+            <td name="para"></td>
+            <td name="tekisei"></td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<button onclick='syoukanjoureturn()'>戻る</button>
+</div>
+    </body>
+
+</html>

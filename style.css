@@ -1,0 +1,306 @@
+@font-face
+{
+font-family: mplus-1p-regular;
+src: url('uzura.eot'); /* IE9 Compat Modes */
+src: url('uzura.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	 url('uzura.ttf') format("truetype");
+}
+
+body {
+	background-color:#efefef;
+	/*font-family: "Hiragino Kaku Gothic Pro W3","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;*/
+}
+
+div.page_title {
+	width: 560px;
+	margin: auto;
+	color: #4b4b4b;
+}
+
+div.wrap {
+    padding: 20px;
+    margin: auto;
+    background-color: #fff3b8;
+    width: 650px; height: 650px;
+    /*文字*/
+    font-family: mplus-1p-regular;
+    font-size: 24px;
+    color: #663300;
+    /* 影 */
+    box-shadow:rgba(113, 135, 164, 0.168627) 0px 0px 6px 3px;
+    -webkit-box-shadow:rgba(113, 135, 164, 0.168627) 0px 0px 6px 3px;
+    -moz-box-shadow:rgba(113, 135, 164, 0.168627) 0px 0px 6px 3px;
+    /* 角 */
+    border-radius:6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+}
+/* 角を丸くする */
+.cercle{
+	border: 2px solid #663300;
+	/* 角 */
+	border-radius:6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+    /*margin*/
+}
+
+
+/*ゲームメインウインドウ*/
+div.farm_field{
+	position : relative;
+}
+
+/*ゲーム内div*/
+div.day_and_money{
+	float: left;
+	margin: 8px;
+	width: 130px;
+}
+
+div.daydata_box{
+	float: left;
+	background-color: #fffff9;
+	font-size: 30px;
+	width: 120px;
+	padding: 5px;
+}
+
+div.money_box{
+	float: left;
+	background-color: #fffff9;
+	margin-top: 10px;
+	font-size: 24px;
+	width: 120px;
+	padding: 5px;
+}
+
+div.image_box{
+	background-color: white;
+	float: left;
+	padding: 5px;
+	margin: 8px;
+}
+div.menu_box{
+	float: left;
+	font-size: 24px;
+	margin: 8px 0px 0px 8px;
+}
+
+div.breed_menu{
+	margin-bottom: 3px;
+	padding: 3px 3px 3px 3px;
+	background-color: #fffff9;
+	text-align: center;
+	cursor: pointer;
+}
+
+div.message_box{
+	float: left;
+	font-size: 18px;
+	width: 600px;
+	padding: 3px 3px 3px 10px;
+	background-color: #fffff9;
+}
+
+div.normal_text{
+	margin-top: 10px;
+	margin-bottom: 4px;
+	float: left;
+	width: 600px;
+}
+
+/*表示ウインドウ*/
+div.explain_window{
+	display: none;
+	position : absolute;
+	z-index : 2;
+    background-color: #ffffe0;
+    left : 100px;
+    width: 500px;
+    height:380px;
+}
+
+/*閉じるボタン*/
+div.exit_button{
+	float: right;
+	background-color: #fffff9;
+	cursor: pointer;
+}
+/*中要素*/
+div.window_block{
+	margin:auto;
+	margin-top:30px;
+	display: none;
+	position : relative;
+}
+
+div.traymenu{
+	margin-bottom: 3px;
+	margin-right: 3px;
+	padding: 3px 3px 3px 3px;
+	background-color: #fffff9;
+	text-align: center;
+	width: 120px;
+	cursor: pointer;
+}
+
+/*修行メニュー*/
+.syugyomenu{
+	padding: 3px;
+	background-color: #fffff9;
+	text-align: center;
+	width: 100px;
+	cursor: pointer;
+}
+/*基本テーブル*/
+table.table{
+	border-collapse: collapse;
+}
+table.table div.syugyomenu {
+	margin:auto;
+}
+table.table td {
+	border-collapse: collapse;
+	border: 2px #663300 solid;
+	text-align: center;
+	padding: 2px;
+}
+/*大会メニュー*/
+table.taikai_table, table.taikai_table td {
+	border-collapse: collapse;
+	border: 2px #663300 solid;
+	text-align: center;
+	padding: 2px;
+	height:28px;
+}
+
+table.syugyou_table tr {
+	height: 32px;
+}
+/*アイテムテーブル*/
+table.item_table tr {
+	height: 32px;
+}
+/*技テーブル*/
+#skill_tbody tr {
+	height: 32px
+}
+
+/*技リストボタン*/
+div.skill_button{
+	background-color: #fffff9;
+	cursor: pointer;
+	font-size: 20px;
+	margin-left:5px;
+	float: left;
+}
+
+
+
+div.floatleft{
+	float: left;
+}
+
+/*ウインドウ2(大会、修行、再生場用)*/
+div.window2{
+	display: none;
+	position : absolute;
+	z-index : 2;
+    background-color: #ffffe0;
+    width: 100%;
+    height:510px;
+}
+/*中要素*/
+div.window_block2{
+	position : relative;
+	z-index : 2;
+	display: none;
+	margin: auto;
+	margin-top: 20px;
+	text-align:center;
+}
+/*大会関連*/
+div.battle_stat {
+	position : absolute;
+	text-align:center;
+	background-color: #ffffe0;
+	z-index : 3;
+	margin: auto;
+	top:0px;
+	width: 100%;
+	height: 100%;
+
+}
+/*セーブ関連*/
+
+.framestyle {
+	background-color: #fffff9;
+	border: 1px solid #FAEBD7;
+	font-size: 14px;
+	padding: 3px;
+	/* 角 */
+	border-radius:6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+
+	width: 300px;
+	height: 100px;
+}
+
+/*ランキングボックス*/
+div.rankbox {
+	position: relative;
+	background-color: #fffff9;
+	border: 1px solid #FAEBD7;
+	font-size: 12px;
+	text-align: left;
+	padding: 3px;
+	/* 角 */
+	border-radius:6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+
+	width:130px;
+	height:180px;
+}
+div.rankbox_margin {
+	margin-right:10px; 
+	float: left;
+	margin-top:10px;
+}
+div.rankbox_stat {
+	position: absolute;
+	background-color: rgba(255,255,249,0.5);;
+	left:6px;
+	top:50px;
+}
+span.rank_button{
+	position: absolute;
+	border: 2px solid #663300;
+	/* 角 */
+	border-radius:6px;
+    -webkit-border-radius:6px;
+    -moz-border-radius:6px;
+
+    padding: 3px;
+	background-color: #fffff9;
+	text-align: center;
+	cursor: pointer;
+}
+
+.farm_field a {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color:#663300;
+}
+
+#gazou {
+	 width:300px; height:300px;
+}
+img{
+	border:0px;
+}
